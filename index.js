@@ -15,6 +15,7 @@ const corsOptions = {
   methods: ["GET", "POST", "PUT"], // Métodos HTTP permitidos
   allowedHeaders: ["Content-Type", "Authorization"], // Headers permitidos
 };
+app.use(cors(corsOptions));
 
 const uri = `mongodb+srv://jessemendesudemy:hard8Core*@cluster0.dhdmkoc.mongodb.net/immuniedb`; //process.env.MONGO_URI; // Adicione sua URI do MongoDB aqui
 
@@ -25,7 +26,6 @@ mongoose
 
 module.exports = mongoose.connection;
 
-app.use(cors(corsOptions));
 const port = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
