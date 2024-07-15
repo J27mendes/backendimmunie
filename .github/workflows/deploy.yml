@@ -1,0 +1,22 @@
+name: Deploy
+
+on:
+  push:
+    branches: -main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.GITHUB_TOKEN}}
+          heroku_app_name: "backendimmunie"
+          heeroku_email: "jessemendesudemy@gmail.com"
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20"

@@ -7,16 +7,13 @@ dotenv.config();
 
 let keyFilename;
 if (process.env.NODE_ENV === "production") {
-  // No Heroku, leia as credenciais diretamente das variáveis de ambiente
   keyFilename = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
 } else {
-  // No ambiente local, utilize o caminho para o arquivo JSON
   keyFilename = path.join(
     __dirname,
     "../immuniedbcarteirinha-524fe8d59379.json"
   );
 }
-
 // Configura o cliente do Google Cloud Storage com as credenciais lidas
 const storage = new Storage({
   projectId: process.env.GCP_PROJECT_ID,
