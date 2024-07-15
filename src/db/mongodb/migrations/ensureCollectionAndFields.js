@@ -5,7 +5,7 @@ async function ensureCollectionAndFields() {
     const hasExistingData = await PasseVerde.findOne();
 
     if (hasExistingData) {
-      console.log("Os campos já existem. Não serão criados novamente.");
+      return;
     } else {
       const uploadedAt = new Date("2024-07-06T00:00:00Z");
       const editedAt = new Date("2024-07-06T00:00:00Z");
@@ -26,7 +26,6 @@ async function ensureCollectionAndFields() {
       });
 
       await document.save();
-      console.log("Documentos inseridos com sucesso.");
     }
   } catch (error) {
     console.error("Erro ao garantir a coleção e campos:", error);
