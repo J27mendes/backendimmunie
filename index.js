@@ -17,7 +17,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-const uri = `mongodb+srv://${process.env.MONGO_DB_USER}:${MONGO_DB_PASS}@cluster0.dhdmkoc.mongodb.net/${MONGO_DB_DB}`; //process.env.MONGO_URI; // Adicione sua URI do MongoDB aqui
+const uri = `mongodb+srv://${process.env.MONGO_DB_USER}:${MONGO_DB_PASS}@cluster0.dhdmkoc.mongodb.net/${process.env.MONGO_DB_DB}`; //process.env.MONGO_URI; // Adicione sua URI do MongoDB aqui
 
 mongoose
   .connect(uri)
